@@ -118,7 +118,7 @@ public class SingleFoodDetails extends AppCompatActivity {
 
         if(mealTime.equalsIgnoreCase("Breakfast")){
             breakfastBD.insertBreakfast(foodId, date);
-            Toast.makeText(this, "Breakfast added", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Breakfast added " + foodId + " " + date , Toast.LENGTH_SHORT).show();
         } else if(mealTime.equalsIgnoreCase("Lunch")){
             lunchDB.insertBreakfast(foodId, date);
             Toast.makeText(this, "Lunch Added ", Toast.LENGTH_SHORT).show();

@@ -45,14 +45,18 @@
         android:background="#FAF7F7"
         android:layout_margin="20dp">
 
-        <Spinner
-            android:id="@+id/date_spinner"
+        <Button
+            android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center">
-
-        </Spinner>
+            android:paddingTop="10sp"
+            android:paddingLeft="10sp"
+            android:paddingBottom="10sp"
+            android:textColor="@color/colorAccent"
+            android:text="today"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            style="@android:style/Widget.DeviceDefault.Light.Spinner"/>
 
     </LinearLayout>
 

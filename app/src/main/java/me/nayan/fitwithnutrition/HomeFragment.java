@@ -12,8 +12,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import me.nayan.fitwithnutrition.adapter.FoodListAdapter;
+import me.nayan.fitwithnutrition.databse.FoodDB;
 
 public class HomeFragment extends Fragment {
+
+    FoodDB foodDB;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,8 +32,10 @@ public class HomeFragment extends Fragment {
                 ,"200","200","200","200","200","200","200","200","200"};
         final String[] carbs = {"100","100","100","100","100","100","100","100","100","100","100",
                 "100","100","100","100","100","100","100","100","100"};
-        final String[] Protine = {"70%","70%", "70%", "70%", "70%","70%","70%", "70%", "70%", "70%","70%","70%",
-                "70%", "70%", "70%","70%","70%", "70%", "70%", "70%"};
+        final String[] Protine = {"70","70", "70", "70", "70","70","70", "70", "70", "70","70","70",
+                "70", "70", "70","70","70", "70", "70", "70"};
+        final String[] fat = {"40","40", "40", "40", "40","40","40", "40", "40", "40","40","40",
+                "40", "40", "40","40","40", "40", "40", "40"};
 
 
         ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(
@@ -41,6 +46,12 @@ public class HomeFragment extends Fragment {
 
         //foodList.setAdapter(listAdapter);
 
+        //insert data into fooddb
+        foodDB = new FoodDB(view.getContext());
+        for (int i=0; i<foodId.length; i++){
+            foodDB.insertFood(foodId[i], foodName[i], "Nice food", null, Float.parseFloat(calories[i]),
+                    Float.parseFloat(Protine[i]), Float.parseFloat(carbs[i]), Float.parseFloat(fat[i]));
+        }
         // Grid View Handler
         FoodListAdapter adapter = new FoodListAdapter(getActivity(), foodName, foodCat, Protine, calories, carbs);
         ListView foodList = view.findViewById(R.id.home_food_list);
