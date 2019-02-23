@@ -5,6 +5,9 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -14,6 +17,9 @@ import android.widget.Toast;
 
 public class Home extends AppCompatActivity {
 
+    DrawerLayout drawerLayout;
+    NavigationView navView;
+
     BottomNavigationView bottomNavigationView;
 
     @Override
@@ -22,7 +28,6 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         bottomNavigationView = findViewById(R.id.home_bottom_nav);
-
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -55,11 +60,34 @@ public class Home extends AppCompatActivity {
 
         // Initiate Toolbar
         initToolbar();
+
+        // Navigation Drawer Set Up
+//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
+//        toggle.setDrawerIndicatorEnabled(true);
+//        drawerLayout.setDrawerListener(toggle);
+//        toggle.syncState();
+
+
+//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+//                this, drawer, toolbar, R.string.drawer_open, R.string.drawer_close);
+//        drawer.addDrawerListener(toggle);
+//        toggle.syncState();
+//
+//        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+        // Navigation header user data
+//        NavigationHeader navigationHeader = new NavigationHeader(Home.this);
+//        navigationHeader.saveHeaderData();
+        // Navigation item click work
+//        NavigationItem item = new NavigationItem(Home.this);
+//        item.itemClickWork();
+
     }
 
-
+    Toolbar toolbar;
     private void initToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_menu);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Food List");

@@ -4,12 +4,96 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white_5"
+    android:orientation="vertical"
     tools:context=".WeightFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="weight_chart goes here" />
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/weight_sec"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:background="#FAF7F7"
+            android:layout_margin="12dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:layout_gravity="center"
+                android:textSize="30sp"
+                android:text="Your current weight: "/>
+
+            <TextView
+                android:id="@+id/weight_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:text="0"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bmi_sec"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:background="#FAF7F7">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:layout_gravity="center"
+                android:textSize="30sp"
+                android:text="Your BMI: "/>
+
+            <TextView
+                android:id="@+id/bmi_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:text="0"/>
+
+        </LinearLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <EditText
+                android:id="@+id/age_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="weight (KG)"
+                android:inputType="number"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_up_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:background="@drawable/btn_rounded_login"
+            android:text="Update Weight"
+            />
+
+    </LinearLayout>
+
+
 
 </FrameLayout>

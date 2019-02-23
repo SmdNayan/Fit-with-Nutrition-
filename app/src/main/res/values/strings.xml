@@ -6,6 +6,11 @@
     <string name="search">Search</string>
     <string name="settings">Settings</string>
 
+    <string name="drawer_open">Open Drawer</string>
+    <string name="drawer_close">Drawer Close</string>
+    <string name="app_label">Search</string>
+    <string name="search_hint">Search Food</string>
+
     <string-array name="mealTime">
         <item>Select your category</item>
         <item>Breakfast</item>
