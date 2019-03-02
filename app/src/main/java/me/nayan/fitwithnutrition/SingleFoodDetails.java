@@ -1,5 +1,6 @@
 package me.nayan.fitwithnutrition;
 
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -20,6 +21,7 @@ import java.util.Locale;
 import me.nayan.fitwithnutrition.databse.BreakfastBD;
 import me.nayan.fitwithnutrition.databse.DinnerDB;
 import me.nayan.fitwithnutrition.databse.LunchDB;
+import me.nayan.fitwithnutrition.fragments.DatePickerFragment;
 
 public class SingleFoodDetails extends AppCompatActivity {
 
@@ -37,7 +39,7 @@ public class SingleFoodDetails extends AppCompatActivity {
 
     Bundle bundle;
 
-    String foodName, foodCat, prot, cal, crb;
+    String foodName, foodCat, prot, cal, crb, ft;
     int foodId;
 
     BreakfastBD breakfastBD;
@@ -46,6 +48,9 @@ public class SingleFoodDetails extends AppCompatActivity {
 
     // Date Initialization
     String date;
+
+    Button button;
+    private DialogFragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,10 +82,13 @@ public class SingleFoodDetails extends AppCompatActivity {
         cal= bundle.getString("FOOD_CAL");
         crb= bundle.getString("FOOD_CRB");
         prot= bundle.getString("FOOD_PTN");
+        ft = bundle.getString("FOOD_FAT");
+
 
         calories.setText("Calories: "+cal);
         protine.setText("Protin: "+ prot);
         carbs.setText("Carb: "+ crb);
+        fat.setText("Fat: "+ft);
         foodNameTv.setText(foodName);
 
         ArrayAdapter<CharSequence> categorySpinnerAdapter = ArrayAdapter.createFromResource(this, R.array.mealTime, android.R.layout.simple_spinner_item);
@@ -108,27 +116,75 @@ public class SingleFoodDetails extends AppCompatActivity {
             }
         });
 
+        button = (Button) findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDatePickerDialog();
+            }
+        });
 
-        date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
 
     }
 
     private void saveMeal(){
         String mealTime = spinner.getSelectedItem().toString();
+        c = Calendar.getInstance();
+
+        if(button.getText().toString().equalsIgnoreCase("Today")){
+            String year = String.valueOf(c.get(Calendar.YEAR));
+            String month = String.valueOf(c.get(Calendar.MONTH));
+            String day = String.valueOf(c.get(Calendar.DAY_OF_MONTH));
+            date = day+"/"+(month+1)+"/"+year;
+        } else if(button.getText().toString().equalsIgnoreCase("Tomorrow")){
+            String year = String.valueOf(c.get(Calendar.YEAR));
+            String month = String.valueOf(c.get(Calendar.MONTH));
+            String day = String.valueOf(c.get(Calendar.DAY_OF_MONTH)+1);
+            date = day+"/"+(month+1)+"/"+year;
+        } else {
+            date = button.getText().toString();
+        }
 
         if(mealTime.equalsIgnoreCase("Breakfast")){
-            breakfastBD.insertBreakfast(foodId, date);
+            breakfastBD.insertBreakfast(foodId, foodName, foodCat, cal, crb, prot, ft, date);
             Toast.makeText(this, "Breakfast added " + foodId + " " + date , Toast.LENGTH_SHORT).show();
         } else if(mealTime.equalsIgnoreCase("Lunch")){
-            lunchDB.insertBreakfast(foodId, date);
+            lunchDB.insertBreakfast(foodId, foodName, foodCat, cal, crb, prot, ft, date);
             Toast.makeText(this, "Lunch Added ", Toast.LENGTH_SHORT).show();
         } else if(mealTime.equalsIgnoreCase("Dinner")) {
-            dinnerDB.insertBreakfast(foodId, date);
+            dinnerDB.insertBreakfast(foodId, foodName, foodCat, cal, crb, prot, ft, date);
             Toast.makeText(this, "Dinner Added", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Please Select prefer slot", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    /**
+     * Handle the new set date here.
+     * @param year
+     * @param month
+     * @param day
+     */
+    Calendar c;
+    public void onDateSet(int year, int month, int day){
+        c = Calendar.getInstance();
+        if(year == c.get(Calendar.YEAR) && month == c.get(Calendar.MONTH) &&
+                day == c.get(Calendar.DAY_OF_MONTH)) {
+            button.setText("Today");
+        } else if (year == c.get(Calendar.YEAR) && month == c.get(Calendar.MONTH) &&
+                day == (c.get(Calendar.DAY_OF_MONTH)) +1) {
+            button.setText("Tomorrow");
+        }else {
+            button.setText(day+"/"+(month+1)+"/"+year);
+        }
+    }
+
+    private void showDatePickerDialog(){
+        if(fragment == null) {
+            fragment = new DatePickerFragment(this);
+        }
+        fragment.show(getSupportFragmentManager(), "datePicker");
     }
 
 }

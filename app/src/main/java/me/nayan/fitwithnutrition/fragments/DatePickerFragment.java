@@ -14,6 +14,7 @@ import java.util.Calendar;
 import me.nayan.fitwithnutrition.BreakfastChart;
 import me.nayan.fitwithnutrition.DinnerChart;
 import me.nayan.fitwithnutrition.LunchChart;
+import me.nayan.fitwithnutrition.SingleFoodDetails;
 
 @SuppressLint("ValidFragment")
 public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
@@ -47,12 +48,11 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
             ((BreakfastChart)getActivity()).onDateSet(year, month, day);
         } else if(activity.getLocalClassName().equals("LunchChart")){
             ((LunchChart)getActivity()).onDateSet(year, month, day);
-        } else if(activity.getLocalClassName().equals("LunchChart")){
+        } else if(activity.getLocalClassName().equals("DinnerChart")){
             ((DinnerChart)getActivity()).onDateSet(year, month, day);
+        } else if(activity.getLocalClassName().equals("SingleFoodDetails")){
+            ((SingleFoodDetails)getActivity()).onDateSet(year, month, day);
         }
-
-
-
 
     }
 

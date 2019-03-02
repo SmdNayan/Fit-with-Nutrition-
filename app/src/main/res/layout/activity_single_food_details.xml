@@ -63,7 +63,8 @@
         android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="4">
 
         <ImageView
             android:id="@+id/food_main_image"
@@ -71,7 +72,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:src="@drawable/apple_fruit"
-            android:layout_margin="24dp"
+            android:layout_margin="8dp"
             />
         <LinearLayout
             android:layout_width="match_parent"
@@ -92,14 +93,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_margin="20dp">
+                android:layout_margin="8dp">
                 <TextView
                     android:id="@+id/calories"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Calories: "
-                    android:textSize="18sp"/>
+                    android:textSize="18sp"
+                    android:textColor="#D609FA"/>
 
                 <TextView
                     android:id="@+id/protine"
@@ -107,7 +109,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Protine: "
-                    android:textSize="18sp"/>
+                    android:textSize="18sp"
+                    android:textColor="#C90000"/>
 
             </LinearLayout>
 
@@ -115,13 +118,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_margin="20dp">
+                android:layout_margin="8dp">
                 <TextView
                     android:id="@+id/carbs"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Carbohidrate: "
+                     android:textColor="#DA1616"
                     android:textSize="18sp"/>
 
                 <TextView
@@ -130,6 +134,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Fat: "
+                    android:textColor="#223BE9"
                     android:textSize="18sp"/>
 
             </LinearLayout>
@@ -138,7 +143,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:orientation="vertical">
 
             <TextView
@@ -147,7 +152,8 @@
                 android:text="Please Select prefer slot"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:layout_margin="12dp"
+                android:layout_margin="8dp"
+
                 />
 
             <Spinner
@@ -158,14 +164,32 @@
                 />
 
             <Button
-                android:id="@+id/add_btn"
+                android:id="@+id/button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingTop="10sp"
+                android:paddingStart="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/colorAccent"
+                android:text="today"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                style="@android:style/Widget.DeviceDefault.Light.Spinner"/>
+
+
+            <Button
+                android:id="@+id/add_btn"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
                 android:text="Add"
                 android:background="@drawable/btn_rounded_accent"
                 android:layout_margin="12dp"
                 />
 
+
         </LinearLayout>
+
+
+
     </LinearLayout>
 </RelativeLayout>

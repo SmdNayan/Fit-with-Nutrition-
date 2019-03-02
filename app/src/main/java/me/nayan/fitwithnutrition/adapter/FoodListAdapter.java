@@ -73,9 +73,9 @@ public class FoodListAdapter extends BaseAdapter {
         TextView carbs = gridView.findViewById(R.id.carbs);
         fN.setText(foodName[position]);
         fC.setText(foodCategory[position]);
-        p.setText(Protine[position]);
-        c.setText(Calories[position]);
-        carbs.setText(Carbs[position]);
+        p.setText("Protine: "+Protine[position]);
+        c.setText("Cal: "+Calories[position]);
+        carbs.setText("Carbs: " + Carbs[position]);
         return gridView;
     }
 }

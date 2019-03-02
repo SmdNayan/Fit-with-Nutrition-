@@ -19,12 +19,12 @@ public class ChartListAdapter extends BaseAdapter {
 
     private int[] foodNum;
     private String[] foodName;
-    private float[] cal;
+    private String[] cal;
     private String[] time;
 
 //    private ArrayList<GridItem> mGridData = new ArrayList<GridItem>();
 
-    public ChartListAdapter(Context context, int[] foodNum, String[] foodName, float[] cal, String[] time) {
+    public ChartListAdapter(Context context, int[] foodNum, String[] foodName, String[] cal, String[] time) {
         this.context = context;
         this.foodNum = foodNum;
         this.foodName = foodName;
@@ -68,7 +68,7 @@ public class ChartListAdapter extends BaseAdapter {
         TextView c = foodView.findViewById(R.id.time);
         fN.setText(String.valueOf(foodNum[position]));
         fC.setText(foodName[position]);
-        p.setText(String.valueOf(cal[position]));
+        p.setText("Calories: " +String.valueOf(cal[position]));
         c.setText(time[position]);
         return foodView;
     }

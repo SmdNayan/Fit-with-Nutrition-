@@ -14,10 +14,17 @@ public class LunchDB extends DatabaseHelper {
      * CRUD On User Table
      */
     // Insert Data on User Table
-    public boolean insertBreakfast(int foodId, String date){
+    public boolean insertBreakfast(int foodId, String foodName, String foodCat, String cal,
+                                   String carb, String prot, String fat,  String date){
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_FOOD_ID, foodId);
+        contentValues.put(COL_FOOD_NAME, foodName);
+        contentValues.put(COL_FOOD_CAT, foodCat);
+        contentValues.put(COL_CALORIES, cal);
+        contentValues.put(COL_CARBS, carb);
+        contentValues.put(COL_PROTINE, prot);
+        contentValues.put(COL_FAT, fat);
         contentValues.put(COL_DATE, date);
 
         long res = database.insert(TABLE_NAME_FOUR, null, contentValues);

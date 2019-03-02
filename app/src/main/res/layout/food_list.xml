@@ -5,38 +5,76 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/food_name"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    <TextView
-        android:id="@+id/category"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/food_image"
+            android:paddingStart="12dp"/>
 
         <TextView
-            android:id="@+id/protine"
-            android:layout_width="wrap_content"
+            android:id="@+id/food_name"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="4dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:layout_toEndOf="@id/image"
             />
 
         <TextView
-            android:id="@+id/calories"
-            android:layout_width="wrap_content"
+            android:id="@+id/category"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:layout_toEndOf="@id/image"
+            android:layout_below="@id/food_name"
             />
 
-        <TextView
-            android:id="@+id/carbs"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_toEndOf="@id/image"
+            android:layout_below="@id/category"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
-    </LinearLayout>
+            android:orientation="horizontal"
+            android:paddingStart="12dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="12dp">
+
+            <TextView
+                android:id="@+id/protine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#DA1616"
+                />
+
+            <TextView
+                android:id="@+id/calories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#223BE9"
+                />
+
+            <TextView
+                android:id="@+id/carbs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#D609FA"
+                />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
 
 </LinearLayout>

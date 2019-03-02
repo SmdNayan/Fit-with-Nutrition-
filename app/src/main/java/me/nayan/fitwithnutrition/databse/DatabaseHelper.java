@@ -8,7 +8,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Database Name
     private static final String DATABASE_NAME = "nutrition.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 4;
 
     // User Info table and column
     public final String TABLE_NAME_ONE = "user_info";
@@ -35,6 +35,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Breakfast Info table and column
     public final String TABLE_NAME_THREE = "breakfast";
     public static final String COL_DATE = "date";
+    public static final String COL_FOOD_CAT = "food_cat";
 
     // Lunch Info table and column
     public final String TABLE_NAME_FOUR = "lunch";
@@ -55,9 +56,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("create table "+ TABLE_NAME_TWO + "("+ COL_FOOD_ID + " int primary key, "+ COL_FOOD_NAME + " text, " + COL_FOOD_DETAILS + " text, "+
                 COL_FOOD_PHOTO + " blob, "+ COL_CALORIES + " float, "+ COL_PROTINE + " float, "+ COL_CARBS + " float, " + COL_FAT + " float" +")");
 
-        db.execSQL("create table " + TABLE_NAME_THREE + "("+COL_FOOD_ID + " int, " + COL_DATE + " text" +")");
-        db.execSQL("create table " + TABLE_NAME_FOUR + "("+COL_FOOD_ID + " int, " + COL_DATE + " text" +")");
-        db.execSQL("create table " + TABLE_NAME_FIVE + "("+COL_FOOD_ID + " int, " + COL_DATE + " text" +")");
+        db.execSQL("create table " + TABLE_NAME_THREE + "("+COL_FOOD_ID + " int, " +COL_FOOD_NAME + " text, " + COL_FOOD_CAT + " text, "
+                + COL_CALORIES + " text, "+ COL_PROTINE + " text, "+ COL_CARBS + " text, " + COL_FAT + " text, " + COL_DATE + " text" +")");
+        db.execSQL("create table " + TABLE_NAME_FOUR + "("+COL_FOOD_ID + " int, " +COL_FOOD_NAME + " text, " + COL_FOOD_CAT + " text, "
+                + COL_CALORIES + " text, "+ COL_PROTINE + " text, "+ COL_CARBS + " text, " + COL_FAT + " text, " + COL_DATE + " text" +")");
+        db.execSQL("create table " + TABLE_NAME_FIVE + "("+COL_FOOD_ID + " int, " +COL_FOOD_NAME + " text, " + COL_FOOD_CAT + " text, "
+                + COL_CALORIES + " text, "+ COL_PROTINE + " text, "+ COL_CARBS + " text, " + COL_FAT + " text, " + COL_DATE + " text" +")");
 
     }
 

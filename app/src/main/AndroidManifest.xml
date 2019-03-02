@@ -11,9 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <meta-data android:name="android.app.searchable"
-            android:resource="@xml/searchable"/>
-        <activity android:name=".DinnerChart"></activity>
+        <meta-data
+            android:name="android.app.searchable"
+            android:resource="@xml/searchable" />
+
+        <activity android:name=".DinnerChart" />
         <activity android:name=".LunchChart" />
         <activity android:name=".BreakfastChart" />
         <activity android:name=".SignIn">
@@ -25,8 +27,9 @@
         </activity>
         <activity android:name=".SignUp" />
         <activity android:name=".Home">
-        <meta-data android:name="android.app.searchable"
-            android:resource="@xml/searchable"/>
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
         </activity>
         <activity android:name=".SingleFoodDetails" />
     </application>
